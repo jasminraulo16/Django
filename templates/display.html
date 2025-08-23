@@ -1,0 +1,22 @@
+{% include 'base.html' %}
+{% block content %}
+<div class="row">
+    {% for i in var %}
+        <div class="col-md-4">
+            <div class="card card-body">
+                <h1>{{ i.name }}</h1>
+                <h1>{{ i.message }}</h1>
+                {% if i.userpic %}
+                    <img src="{{ i.userpic.url }}" alt="no img">
+                {% else %}
+                    <p>No image uploaded</p>
+                {% endif %}
+            </div>
+
+        </div>
+    {% endfor %}
+</div>
+    
+    
+{% endblock %}
+{% include 'footer.html' %}
