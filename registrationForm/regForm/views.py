@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from regForm.forms import UserForm,UserProfileForm
+from django.contrib.auth import authenticate,login
+from django.http import HttpResponse
 # Create your views here.
 
 
@@ -27,18 +29,25 @@ def registration(request):
         'registered' : registered
     }
 
-    # form = UserForm()
-    # form1= UserProfileForm()
-    # context = {
-    #     "form" : form,
-    #     'form1':form1
-    # }
-    # if request.method == "POST":
-    #     form = UserForm(request.POST)
-    #     form1 = UserProfileForm(request.POST)
-    #     if form.is_valid() and form1.is_valid() :
-    #         print("validation Scuccess")
-    #         form.save()# work only u have created the model forms 
-    #         print(form.cleaned_data["username"], form1.cleaned_data["phone"])
     return render(request,"registration.html",context)
+
+
+def user_login(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        print(username)
+        print(password)
+        user = authenticate(username=username,password=password)
+
+        if user:
+            if user.is_active:
+                login(request,user)
+                return redirect('home')
+        else:
+            return HttpResponse("Please check your creds..!")
+    return render(request,'login.html',{})
+
+def home(request):
+    return render(request,'home.html',{})
 
