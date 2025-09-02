@@ -1,7 +1,8 @@
 from django.shortcuts import render,redirect
 from regForm.forms import UserForm,UserProfileForm
-from django.contrib.auth import authenticate,login
+from django.contrib.auth import authenticate,login,logout
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
@@ -48,6 +49,15 @@ def user_login(request):
             return HttpResponse("Please check your creds..!")
     return render(request,'login.html',{})
 
+
+@login_required(login_url='login')
 def home(request):
     return render(request,'home.html',{})
 
+@login_required(login_url='login')
+def profile(request):
+    return render(request,'profile.html',{})
+
+def user_logout(request):
+    logout(request)
+    return redirect('login')
