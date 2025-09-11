@@ -61,3 +61,9 @@ def profile(request):
 def user_logout(request):
     logout(request)
     return redirect('login')
+
+def update(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        email = request.POST['email']
+    return 

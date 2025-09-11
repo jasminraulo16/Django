@@ -22,29 +22,20 @@
         <ul class="nav navbar">
           {% if user.is_authenticated %}
             <li class="navitem">
-              <a class="nav-link text-white" href="{% url 'home' %}">Home</a>
+              <a class="nav-link text-white" href="{% url 'home' %}">DrivingStyle</a>
             </li>
             <li class="navitem">
-              <a class="nav-link text-white" href="profile">Profile</a>
-            </li>
-            <li class="navitem">
-              <a class="nav-link text-white" href="{% url 'companies' %}">Companies</a>
+              <a class="nav-link text-white" href="{%url 'companies'%}">Companies</a>
             </li>
             <li class="navitem">
               <a class="nav-link text-white" href="logout">Logout</a>
             </li>
-          {% else %}
-            <li class="navitem">
-              <a class="nav-link text-white" href="{% url 'registration' %}">Register</a>
-            </li>
-            <li class="navitem ">
-              <a class="nav-link text-white" href="{% url 'login' %}">Login</a>
-            </li>
           {% endif %}
-         
         </ul>
       </div>
     </nav>
+    {% block content %}
+    {%endblock%}
    
 </body>
 </html>

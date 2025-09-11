@@ -29,7 +29,7 @@
             </div>
           {% else %}
               <h1 style="text-align: center">Registeration Form</h1>
-          <form action="" method="POST">
+          <form enctype="multipart/form-data" method="POST">
             {% csrf_token %}
             <div class="row">
               <div class="col-md-6">

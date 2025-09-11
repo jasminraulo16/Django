@@ -1,0 +1,41 @@
+{% extends "cars/base.html" %} {% block content %}
+<div class="container">
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-md-4">
+        {% if company.logo %}
+        <img src="{{ company.logo.url }}" alt="" />
+        {% endif %}
+        <h1>{{ company }} Company Details</h1>
+        <a href="#">see products..</a>
+      </div>
+      <div class="col-md-8">
+        <h3><strong>CEO: </strong>{{company.ceo}}</h3>
+        <h3><strong>ESTABLISED YEAR: </strong>{{company.est_year}}</h3>
+        <h3><strong>ORIGIN: </strong>{{company.origin}}</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti,
+          quam obcaecati distinctio debitis porro maiores est hic accusamus
+          facere culpa, voluptatum dolor perferendis nihil molestias recusandae
+          odit! Voluptates, minima ipsa! Eum, quibusdam. Impedit earum possimus
+          asperiores dolore perspiciatis quod, nisi ratione incidunt laudantium
+          ipsam consequatur! Voluptates, animi! Ab et aliquid quibusdam facere,
+          praesentium vel aut animi ad similique voluptas ea! Alias accusamus
+          quo necessitatibus culpa accusantium, repudiandae rerum quidem eos,
+          error optio, distinctio ipsam ducimus quasi recusandae. Dolorem
+          doloremque, ipsum aut iusto quos sed. Voluptatum nostrum ut provident
+          placeat est? Molestias rerum ab nisi impedit suscipit. Expedita,
+          corrupti dignissimos vel veniam voluptatum doloribus illum numquam
+          ipsa. Illo perspiciatis autem tempora. Veritatis ab quos corporis
+          optio, recusandae praesentium facilis iste dolorem? Velit facilis
+          quaerat alias nisi, adipisci ipsum eius iste facere optio earum
+          tempore inventore doloribus tenetur obcaecati et non cumque,
+          reprehenderit dicta maiores temporibus praesentium, rerum asperiores
+          dignissimos voluptas? Adipisci.
+        </p>
+    
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
